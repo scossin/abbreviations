@@ -1,11 +1,13 @@
-Algorithms that detect abbreviations
+# Algorithms that detect abbreviations
 
-## Build
+## Build  
 To build it, you will need Java 1.8 (or higher) JDK a recent version of Maven (https://maven.apache.org/download.cgi) and put the `mvn` command on your path. Now you can run `mvn clean package` 
 
-## Abbreviations detection
+## Abbreviations detection
 To be detected, the algorithms expect a list of noun phrases. Examples are given in the *nounphrases* folder.  
-Run algorithm 1:
+
+
+Run algorithm 1:  
 ```bash
 java -jar algo1/target/algo1-0.0.1.jar ./nounphrases/example_algo1.tsv ./res_algo1.txt
 ```
