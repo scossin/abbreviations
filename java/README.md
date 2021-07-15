@@ -4,7 +4,7 @@
 To build it, you will need Java 1.8 (or higher) JDK a recent version of Maven (https://maven.apache.org/download.cgi) and put the `mvn` command on your path. Now you can run `mvn clean package` 
 
 ## Abbreviations detection
-To be detected, the algorithms expect a list of noun phrases. Examples are given in the *nounphrases* folder.  
+To detect abbreviations the algorithms expect a list of noun phrases. A file example is given in the *nounphrases* folder. The file must contain two columns: the noun phrase and its frequency. In the paper, French nounphrases were extracted with this program: https://github.com/scossin/CandidateTerm
 
 
 Run algorithm 1:  
