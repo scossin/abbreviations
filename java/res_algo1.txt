@@ -1,0 +1,2 @@
+shortForm	longForm	TermShortForm	FreqTermShortForm	TermLongForm	FreqTermLongForm
+vasc	vasculaire	accident vasc cerebral	30	accident vasculaire cerebral	100
