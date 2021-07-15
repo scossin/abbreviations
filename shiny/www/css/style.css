@@ -1,0 +1,104 @@
+body {
+  background-color:blanchedalmond
+}
+/* customize user and begin_button at initialization */
+.username_before_initialization {
+  top: 200px;
+  position: relative;
+  width: 30%;
+  margin: auto;
+}
+
+#username-label > selectize-control {
+  width: 50%;
+  margin: auto;
+}
+
+#begin_button {
+  background-color:#b0b355;
+  width: 100%;
+}
+
+/* hide application at initialization */
+#application {
+display:none;
+}
+
+.username_after_initialization {
+  position: relative;
+  left: 10px;
+  top: 10px;
+}
+
+
+/* when it's not an abbreviation, add this: */
+.barre {
+text-decoration: line-through;
+}
+
+
+#anchor_abbreviation {
+  font-size: 3em;
+}
+
+/*
+#not_abb_div {
+  display: inline-block;
+  margin-left: 20px;
+}
+*/
+
+#abb {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+width: 100%;
+align-items: center;
+justify-items: center;
+background-color:#f2b251;
+margin-bottom:40px;
+}
+
+#not_abb_div {
+  margin-bottom: -30px;
+}
+
+#numerotation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: stretch;
+}
+
+#change_id_abb {
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+#props {
+  display:grid;
+  grid-template-columns: auto auto;
+}
+
+.shiny-options-group {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+/*
+#user_prop {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  align-items:center;
+}*/
+
+#user_proposition_values {
+  width:400%;
+  background-color: #d5e5ee;
+}
+
+#save {
+  width: 100%;
+}
+
+table.dataTable tr.selected td, table.dataTable td.selected {
+  background-color: green !important;
+}
