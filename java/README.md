@@ -9,10 +9,10 @@ To be detected, the algorithms expect a list of noun phrases. Examples are given
 
 Run algorithm 1:  
 ```bash
-java -jar algo1/target/algo1-0.0.1.jar ./nounphrases/example_algo1.tsv ./res_algo1.txt
+java -jar algo1/target/algo1-0.0.1.jar ./nounphrases/example_nounphrases.tsv ./res_algo1.txt
 ```
 
 Run algorithm2: 
 ```bash
-java -jar algo2/target/algo2-0.0.1.jar ./nounphrases/example_algo2.tsv ./res_algo2.txt
+java -jar algo2/target/algo2-0.0.1.jar ./nounphrases/example_nounphrases.tsv ./res_algo2.txt
 ```
