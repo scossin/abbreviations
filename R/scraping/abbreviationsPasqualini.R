@@ -1,22 +1,18 @@
 ## http://abreviationsmedicales.ch/abreviation/AAS
 # licence creative commons
-# Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) 
-# script non reproductible
+# Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) : https://creativecommons.org/licenses/by-nc/4.0/
+# Attribution: Créé et maintenu par Christine Pasqualini, codeuse médicale aux Hôpitaux Universitaires de Genève.
 
 url <- "http://abreviationsmedicales.ch/abreviation/AAS"
 library(rvest)
 page <- xml2::read_html(x = url)
 
 abbr_list <- page %>% html_node("#abbr-list")
-h3 <- shortForms %>% html_nodes(xpath = "//h3") 
+h3 <- abbr_list %>% html_nodes(xpath = "//h3") 
 abbs <- h3 %>% html_text()
 
-abbr_list %>% html_text()
-
-abb <- "BHE"
 df <- NULL
 abbs <- abbs[-1] ## first is empty ""
-table(nchar(abbs))
 for (abb in abbs[1:length(abbs)]) {
   print(abb)
   tryCatch(expr = {
@@ -35,23 +31,28 @@ for (abb in abbs[1:length(abbs)]) {
   })
 }
 
-source("normalize.R")
-empty_char <- df$longForm[22]
-df$shortForm2 <- gsub(empty_char, " ", df$shortForm, useBytes = T)
-df$longForm <- gsub(empty_char, " ", df$longForm, useBytes = T)
-df$shortForm <- normalize(df$shortForm,"UTF-8")
-df$longForm <- normalize(df$longForm, "UTF-8")
-df <- unique(df)
-bool <- df$longForm == " " | df$shortForm == " "
+source("R/scraping/normalize.R")
+df_norm <- df
+df_norm$shortForm <- normalize(df$shortForm,"UTF-8")
+df_norm$longForm <- normalize(df_norm$longForm,"UTF-8")
+df_norm <- unique(df_norm)
+bool <- df_norm$longForm == " " | df_norm$shortForm == " "
 sum(bool)
-df <- subset(df, !bool)
-sum(is.na(df$longForm))
-df$longForm[20:30]
-
-pasqualini_abbs <- df
+df_norm <- subset(df_norm, !bool)
+sum(is.na(df_norm$longForm))
+pasqualini_abbs <- df_norm
+filename <-  "R/scraping/pasqualini_abbs.tsv"
 write.table(x = pasqualini_abbs,
-            file = "./pasqualini_abbs.tsv",
+            file = filename,
             sep="\t",
             col.names = T,
             row.names = F,
-            fileEncoding = "UTF-8")
+            fileEncoding = "UTF-8",
+            quote = F)
+
+# Check we can read it:
+test <- read.table(file = filename,
+                   header = T,
+                   sep = "\t",
+                   quote = "")
+nrow(test) == nrow(pasqualini_abbs) # TRUE
